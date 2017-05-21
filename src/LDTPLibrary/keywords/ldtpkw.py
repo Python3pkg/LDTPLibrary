@@ -1034,7 +1034,7 @@ class LDTPKeywords(KeywordGroup):
             self._info("generate key event with <%s>" % data)
             return ldtp.generatekeyevent(data)
         except LdtpExecutionError as e:
-            print (e.message)
+            print((e.message))
             raise LdtpExecutionError
 
     def get_window_list(self):

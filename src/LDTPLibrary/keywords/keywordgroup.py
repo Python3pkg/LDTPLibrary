@@ -53,7 +53,7 @@ def _run_on_failure_decorator(method, *args, **kwargs):
 class KeywordGroupMetaClass(type):
     def __new__(mcs, cls_name, bases, dict_i):
         if decorator:
-            for name, method in dict_i.items():
+            for name, method in list(dict_i.items()):
                 if not name.startswith('_') and inspect.isroutine(method):
                     dict_i[name] = decorator(_run_on_failure_decorator, method)
         return type.__new__(mcs, cls_name, bases, dict_i)
